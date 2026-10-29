@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.StockGlass" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.StockGlass" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryContainer">@color/primary_container</item>
-        <item name="colorOnPrimary">@color/on_primary</item>
-        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
-        <item name="colorSecondary">@color/secondary</item>
-        <item name="colorOnSecondary">@color/on_secondary</item>
-        <item name="colorSurface">@color/surface</item>
-        <item name="colorSurfaceVariant">@color/surface_variant</item>
-        <item name="colorOnSurface">@color/on_surface</item>
-        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
-        <item name="colorBackground">@color/background</item>
-        <item name="colorOnBackground">@color/on_background</item>
-        <item name="colorOutline">@color/outline</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/primary</item>
         <item name="android:windowBackground">@color/background</item>
-        <item name="materialNavigationBarStyle">@style/Widget.StockGlass.NavigationBar</item>
-    </style>
-
-    <style name="Widget.StockGlass.NavigationBar" parent="Widget.Material3.NavigationBar">
-        <item name="containerColor">@color/surface</item>
     </style>
 </resources>
