@@ -21,7 +21,7 @@ fun ApiKeyScreen(
     onCancel: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    var apiKey by remember { mutableStateOf("") }
+    var apiKey by remember { mutableStateOf<String>("") }
 
     Column(
         modifier = modifier.fillMaxSize().padding(16.dp),
@@ -29,13 +29,13 @@ fun ApiKeyScreen(
     ) {
         StockGlassLogo(modifier = Modifier.align(androidx.compose.ui.Alignment.CenterHorizontally), size = 48.dp)
 
-        Text(
+        androidx.compose.material3.Text(
             text = "API-Schlüssel",
             style = androidx.compose.material3.MaterialTheme.typography.headlineLarge,
             color = androidx.compose.material3.MaterialTheme.colorScheme.onSurface,
         )
 
-        Text(
+        androidx.compose.material3.Text(
             text = "Geben Sie Ihren Twelve Data API-Schlüssel ein, um echte Kursdaten zu empfangen.",
             style = androidx.compose.material3.MaterialTheme.typography.bodyMedium,
             color = androidx.compose.material3.MaterialTheme.colorScheme.onSurfaceVariant,
@@ -47,8 +47,8 @@ fun ApiKeyScreen(
                 androidx.compose.material3.TextField(
                     value = apiKey,
                     onValueChange = { apiKey = it },
-                    label = { Text(text = "API-Schlüssel") },
-                    placeholder = { Text(text = "twelvedata.com") },
+                    label = { androidx.compose.material3.Text(text = "API-Schlüssel") },
+                    placeholder = { androidx.compose.material3.Text(text = "twelvedata.com") },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth().padding(16.dp),
                 )
@@ -59,17 +59,17 @@ fun ApiKeyScreen(
             modifier = Modifier.fillMaxSize(),
             horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(8.dp),
         ) {
-            Button(
+            androidx.compose.material3.Button(
                 modifier = Modifier.weight(1f),
                 onClick = onSave,
             ) {
-                Text(text = "Speichern")
+                androidx.compose.material3.Text(text = "Speichern")
             }
-            TextButton(
+            androidx.compose.material3.TextButton(
                 modifier = Modifier.weight(1f),
                 onClick = onCancel,
             ) {
-                Text(text = "Abbrechen")
+                androidx.compose.material3.Text(text = "Abbrechen")
             }
         }
     }
