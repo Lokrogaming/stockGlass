@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.glance.material)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation("com.google.android.material:material:1.11.0")
     implementation(libs.bundles.network)
     implementation(libs.bundles.persistence)
     implementation(libs.bundles.work)
