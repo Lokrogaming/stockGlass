@@ -6,8 +6,8 @@ compose_compiler = "1.5.11"
 junit = "4.13.2"
 
 [plugins]
-com.android.application = "com.android.tools.build:gradle:8.4.0"
-org.jetbrains.kotlin.android = "org.jetbrains.kotlin:gradle-plugin:1.9.24"
+android-application = { id = "com.android.tools.build:gradle", version = "8.4.0" }
+kotlin-android = { id = "org.jetbrains.kotlin:gradle-plugin", version = "1.9.24" }
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.9.0" }
