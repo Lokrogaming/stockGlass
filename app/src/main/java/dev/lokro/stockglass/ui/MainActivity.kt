@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.mutableStateOf
@@ -13,12 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dev.lokro.stockglass.R
 import dev.lokro.stockglass.ui.screens.apiKey.ApiKeyScreen
 import dev.lokro.stockglass.ui.screens.home.HomeScreen
 import dev.lokro.stockglass.ui.screens.home.WidgetListScreen
 import dev.lokro.stockglass.ui.screens.search.SearchScreen
 import dev.lokro.stockglass.ui.screens.settings.SettingsScreen
-import dev.lokro.stockglass.ui.theme.GlassComponents.PillBottomNavigation
+import dev.lokro.stockglass.ui.theme.PillBottomNavigation
 import dev.lokro.stockglass.ui.theme.StockGlassTheme
 
 class MainActivity : ComponentActivity() {
@@ -51,7 +52,7 @@ fun StockGlassApp() {
     StockGlassTheme(darkTheme = isDarkTheme) {
         val navController = rememberNavController()
 
-        androidx.navigation.compose.NavHost(
+        NavHost(
             navController = navController,
             startDestination = "home",
         ) {
@@ -101,10 +102,10 @@ fun StockGlassApp() {
                 onTabSelected = { index ->
                     selectedTab = index
                     when (index) {
-                        0 -> navController.navigate("home")
-                        1 -> navController.navigate("widgets")
-                        2 -> navController.navigate("search")
-                        3 -> navController.navigate("settings")
+                        0 -> navController.navigate("home") { popBackStack() }
+                        1 -> navController.navigate("widgets") { popBackStack() }
+                        2 -> navController.navigate("search") { popBackStack() }
+                        3 -> navController.navigate("settings") { popBackStack() }
                     }
                 },
             )

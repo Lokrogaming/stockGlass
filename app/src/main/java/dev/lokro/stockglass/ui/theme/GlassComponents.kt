@@ -1,10 +1,7 @@
 package dev.lokro.stockglass.ui.theme
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextButtonDefaults
 import androidx.compose.material3.TopAppBar
@@ -28,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.linearGradient
 import androidx.compose.ui.unit.dp
@@ -50,9 +47,8 @@ fun GlassCard(
     elevation: Dp = 0.dp,
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    val isDark = colorScheme.background.value.alpha.toInt() < 128 || colorScheme.surface == androidx.compose.ui.graphics.Color(0xFF020617.toInt())
-    val surfaceColor = if (isDark) GlassDarkSurface else GlassSurface
-    val outlineColor = if (isDark) GlassDarkOutline else GlassOutline
+    val surfaceColor = Color(0xFFFFFFFF)
+    val outlineColor = Color(0xFFCBD5E1)
 
     Surface(
         modifier = modifier
@@ -72,16 +68,11 @@ fun GlassCardWithGradient(
     endColor: Color = GlassGreenContainer,
     content: @Composable () -> Unit,
 ) {
-    val colorScheme = MaterialTheme.colorScheme
-    val isDark = colorScheme.surface == androidx.compose.ui.graphics.Color(0xFF020617.toInt())
-    val gradientStart = if (isDark) androidx.compose.ui.graphics.Color(0xFF1E3A8A) else GlassGreen
-    val gradientEnd = if (isDark) androidx.compose.ui.graphics.Color(0xFF0F172A) else GlassGreenContainer
-
     Box(
         modifier = modifier
             .background(
-                brush = androidx.compose.ui.graphics.Brush.linearGradient(
-                    colors = listOf(gradientStart, gradientEnd),
+                brush = Brush.linearGradient(
+                    colors = listOf(startColor, endColor),
                 ),
             )
             .border(1.dp, Color(0x33FFFFFF), RoundedCornerShape(20.dp)),
@@ -103,7 +94,7 @@ fun PillBottomNavigation(
     modifier: Modifier = Modifier,
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    val isDark = colorScheme.background == GlassDarkBackground || colorScheme.surface == GlassDarkSurface
+    val isDark = colorScheme.background == Color(0xFF020617.toInt()) || colorScheme.surface == Color(0xFF0F172A.toInt())
 
     val items = listOf(
         BottomNavItem(0, "Home", androidx.compose.material.icons.Icons.Default.Home),
@@ -118,28 +109,28 @@ fun PillBottomNavigation(
             .padding(horizontal = 16.dp, bottom = 24.dp, top = 8.dp),
     ) {
         Surface(
-            color = if (isDark) androidx.compose.ui.graphics.Color(0xFF0F172A) else Color(0xFFFFFFFF),
+            color = if (isDark) Color(0xFF0F172A) else Color(0xFFFFFFFF),
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp)
                 .border(
                     width = 1.dp,
-                    color = if (isDark) GlassDarkOutline else GlassOutline,
+                    color = if (isDark) Color(0xFF334155) else Color(0xFFCBD5E1),
                     shape = RoundedCornerShape(28.dp),
                 )
                 .background(
-                    brush = androidx.compose.ui.graphics.Brush.linearGradient(
+                    brush = Brush.linearGradient(
                         colors = listOf(
-                            if (isDark) androidx.compose.ui.graphics.Color(0xFF1E293B) else Color(0xFFF8FAFC),
-                            if (isDark) androidx.compose.ui.graphics.Color(0xFF0F172A) else Color(0xFFFFFFFF),
+                            if (isDark) Color(0xFF1E293B) else Color(0xFFF8FAFC),
+                            if (isDark) Color(0xFF0F172A) else Color(0xFFFFFFFF),
                         ),
                     ),
                 ),
             shape = RoundedCornerShape(28.dp),
         ) {
-            Column(
+            androidx.compose.foundation.layout.Column(
                 modifier = Modifier.fillMaxSize(),
-                horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(4.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 items.forEach { item ->
                     val isSelected = selectedIndex == item.index
@@ -164,7 +155,7 @@ fun PillBottomNavigation(
                         ) {
                             androidx.compose.foundation.layout.Row(
                                 modifier = Modifier.fillMaxSize(),
-                                horizontalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
+                                horizontalArrangement = Arrangement.Center,
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 Icon(
