@@ -30,7 +30,7 @@ interface GetWidgetConfig {
 }
 
 interface WatchWidgetConfigs {
-    operator fun invoke(): Flow<dev.lokro.stockglass.domain.model.WidgetConfig>
+    operator fun invoke(): Flow<List<dev.lokro.stockglass.domain.model.WidgetConfig>>
 }
 
 interface UpdateWidgetSnapshot {

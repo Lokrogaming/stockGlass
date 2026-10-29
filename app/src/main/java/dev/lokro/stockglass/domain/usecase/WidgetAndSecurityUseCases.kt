@@ -17,7 +17,7 @@ class GetWidgetConfigImpl(private val repository: WidgetRepository) : GetWidgetC
 }
 
 class WatchWidgetConfigsImpl(private val repository: WidgetRepository) : WatchWidgetConfigs {
-    override fun invoke(): Flow<WidgetConfig> = repository.watchWidgetConfigs()
+    override fun invoke(): Flow<List<WidgetConfig>> = repository.watchWidgetConfigs()
 }
 
 class UpdateWidgetSnapshotImpl(private val repository: WidgetRepository) : UpdateWidgetSnapshot {
