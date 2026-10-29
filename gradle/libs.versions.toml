@@ -61,6 +61,7 @@ org-jetbrains-kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", na
 org-jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "1.8.0" }
 org-jetbrains-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version = "1.8.0" }
 com-google-dagger-hilt = { group = "com.google.dagger", name = "hilt", version = "2.52" }
+com-google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version = "2.52" }
 com-google-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version = "2.52" }
 com-google-dagger-hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version = "2.52" }
 

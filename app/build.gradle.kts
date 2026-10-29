@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.bundles.persistence)
     implementation(libs.bundles.work)
     implementation(libs.com.google.dagger.hilt)
+    implementation(libs.hilt.android)
     implementation(libs.org.jetbrains.kotlinx.coroutines.core)
     implementation(libs.org.jetbrains.kotlinx.coroutines.android)
     annotationProcessor(libs.com.google.dagger.hilt.compiler)
