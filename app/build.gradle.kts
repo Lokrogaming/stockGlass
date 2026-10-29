@@ -78,9 +78,6 @@ dependencies {
     annotationProcessor(libs.com.google.dagger.hilt.compiler)
     annotationProcessor(libs.com.google.dagger.hilt.android.compiler)
     annotationProcessor(libs.androidx.room.compiler)
-    kapt(libs.com.google.dagger.hilt.compiler)
-    kapt(libs.com.google.dagger.hilt.android.compiler)
-    kapt(libs.androidx.room.compiler)
 
     debugImplementation(libs.com.squareup.okhttp.logging)
     testImplementation(libs.junit)
