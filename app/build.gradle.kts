@@ -29,30 +29,8 @@ android {
         jvmTarget = "1.8"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-        debug {
-            minifyEnabled = false
-        }
-    }
-
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose_compiler.get()
-    }
-
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-
-    sourceSets {
-        main {
-            java.srcDirs("src/main/java", "src/main/kotlin")
-        }
+        kotlinCompilerExtensionVersion = "1.5.11"
     }
 }
 
