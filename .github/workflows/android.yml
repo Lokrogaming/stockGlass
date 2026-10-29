@@ -19,34 +19,25 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Install Android SDK Command Line Tools
-        env:
-          ANDROID_HOME: $HOME/android-sdk
-        run: |
-          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
-          apt-get update -qq && apt-get install -y -qq unzip >/dev/null 2>&1
-          mkdir -p $ANDROID_HOME/cmdline-tools/latest
-          cd $ANDROID_HOME/cmdline-tools/latest
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /tmp/cmdline-tools.zip
-          unzip -q /tmp/cmdline-tools.zip
-          # ZIP contains cmdline-tools/bin, cmdline-tools/lib, etc. -> move one level up
-          mv cmdline-tools/* . 2>/dev/null || true
-          rmdir cmdline-tools 2>/dev/null || true
-          rm -f /tmp/cmdline-tools.zip
+      - name: Setup Android SDK
+        uses: google-github-actions/setup-android@v2
+        with:
+          api-level: 35
+          target: google_apis
+          build-tools: 35.0.0
+          check-sdk-manager: true
 
       - name: Accept Android SDK licenses
-        env:
-          ANDROID_HOME: $HOME/android-sdk
         run: |
           mkdir -p $ANDROID_HOME/licenses
           echo "d56f5187479451eabf01fb78af6df4131e633742" > $ANDROID_HOME/licenses/android-sdk-license
           echo "84831b9409646a918e30573bab4c9c91346d8abd" > $ANDROID_HOME/licenses/android-sdk-preview-license
 
-      - name: Install Android SDK components
-        env:
-          ANDROID_HOME: $HOME/android-sdk
+      - name: Show SDK info
         run: |
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          ls $ANDROID_HOME/
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list --sdk_root=$ANDROID_HOME | head -20 || true
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
