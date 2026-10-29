@@ -64,7 +64,6 @@ object AppModule {
         return Retrofit.Builder()
             .baseUrl("https://api.twelvedata.com/")
             .client(client)
-            .addConverterFactory(kotlinx.serialization.json.Json.asConverterFactory())
             .build()
             .create(TwelveDataApi::class.java)
     }
