@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dev.lokro.stockglass.R
 import dev.lokro.stockglass.ui.screens.apiKey.ApiKeyScreen
 import dev.lokro.stockglass.ui.screens.home.HomeScreen
 import dev.lokro.stockglass.ui.screens.home.WidgetListScreen
@@ -24,30 +24,23 @@ import dev.lokro.stockglass.ui.theme.StockGlassTheme
 
 class MainActivity : ComponentActivity() {
 
-    private val themePreference = dev.lokro.stockglass.util.ThemePreference()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val isDark = themePreference.isDarkTheme()
-        if (isDark) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-
+        val isDark = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
         setContent {
-            StockGlassApp()
+            StockGlassApp(initialIsDark = isDark)
         }
     }
 }
 
 @Composable
-fun StockGlassApp() {
-    val themePreference = remember { dev.lokro.stockglass.util.ThemePreference() }
-    var isDarkTheme by remember { mutableStateOf(themePreference.isDarkTheme()) }
-    var selectedTab by remember { mutableStateOf(0) }
-    var showApiKey by remember { mutableStateOf(false) }
+fun StockGlassApp(initialIsDark: Boolean) {
+    val context = LocalContext.current
+    val themePreference = remember { dev.lokro.stockglass.util.ThemePreference(context) }
+    var isDarkTheme by remember { mutableStateOf<Boolean>(initialIsDark) }
+    var selectedTab by remember { mutableStateOf<Int>(0) }
+    var showApiKey by remember { mutableStateOf<Boolean>(false) }
 
     StockGlassTheme(darkTheme = isDarkTheme) {
         val navController = rememberNavController()

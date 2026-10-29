@@ -3,7 +3,7 @@ package dev.lokro.stockglass.util
 import android.content.Context
 import android.content.SharedPreferences
 
-class ThemePreference(private val context: Context = android.app.Application.getApplicationContext() as Context) {
+class ThemePreference(private val context: Context) {
 
     private val prefs: SharedPreferences by lazy {
         context.getSharedPreferences("stockglass_prefs", Context.MODE_PRIVATE)
