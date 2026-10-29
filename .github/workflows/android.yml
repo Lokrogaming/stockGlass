@@ -21,7 +21,7 @@ jobs:
 
       - name: Install Android SDK Command Line Tools
         env:
-          ANDROID_HOME: $HOME/android-sdk
+          ANDROID_HOME: /home/runner/android-sdk
         run: |
           echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
           rm -rf $ANDROID_HOME
@@ -41,7 +41,7 @@ jobs:
 
       - name: Accept Android SDK licenses
         env:
-          ANDROID_HOME: $HOME/android-sdk
+          ANDROID_HOME: /home/runner/android-sdk
         run: |
           mkdir -p $ANDROID_HOME/licenses
           echo "d56f5187479451eabf01fb78af6df4131e633742" > $ANDROID_HOME/licenses/android-sdk-license
@@ -49,7 +49,7 @@ jobs:
 
       - name: Install Android SDK components
         env:
-          ANDROID_HOME: $HOME/android-sdk
+          ANDROID_HOME: /home/runner/android-sdk
         run: |
           echo "=== sdkmanager version ==="
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --version || echo "sdkmanager --version failed"
