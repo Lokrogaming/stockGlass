@@ -95,10 +95,10 @@ fun StockGlassApp(initialIsDark: Boolean) {
                 onTabSelected = { index ->
                     selectedTab = index
                     when (index) {
-                        0 -> navController.navigate("home") { popBackStack() }
-                        1 -> navController.navigate("widgets") { popBackStack() }
-                        2 -> navController.navigate("search") { popBackStack() }
-                        3 -> navController.navigate("settings") { popBackStack() }
+                        0 -> navController.navigate("home")
+                        1 -> navController.navigate("widgets")
+                        2 -> navController.navigate("search")
+                        3 -> navController.navigate("settings")
                     }
                 },
             )
