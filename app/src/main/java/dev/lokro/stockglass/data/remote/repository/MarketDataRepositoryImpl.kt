@@ -79,7 +79,7 @@ class TwelveDataMarketDataRepositoryImpl(
                 // fall back to cache while a request is in flight
                 val cached = database.priceSnapshotDao().findBySymbol(symbol)
                 cached?.let { return@runCatching toQuote(it) }
-                    ?: run { return@runCatching Quote(symbol = symbol) }
+                    ?: run { return@runCatching Quote(symbol = symbol, price = null, change = null, percentChange = null) }
             }
             try {
                 val response = api.quote(symbol, requireApiKey())

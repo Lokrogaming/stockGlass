@@ -15,7 +15,7 @@ sealed class ApiResult<out T> {
 }
 
 object ApiResultMapper {
-    fun <T> fromResponse(response: Response<T>, onEmpty: () = {}): ApiResult<T> {
+    fun <T> fromResponse(response: Response<T>, onEmpty: () -> Unit = {}): ApiResult<T> {
         return when {
             response.isSuccessful -> {
                 val body = response.body()
@@ -30,7 +30,7 @@ object ApiResultMapper {
                 ApiResult.InvalidKey(msg)
             }
             response.code() == 429 -> {
-                val retryAfter = response.headers["Retry-After"]?.toLongOrNull()
+                val retryAfter = response.header("Retry-After")?.toLongOrNull()
                 ApiResult.RateLimited(retryAfter)
             }
             response.code() == 404 -> {

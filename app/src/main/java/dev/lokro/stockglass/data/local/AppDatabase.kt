@@ -49,11 +49,11 @@ abstract class AppDatabase : RoomDatabase() {
                     .also { INSTANCE = it }
             }
         }
-    }
 
-    val MIGRATION_1_2 = object : Migration(1, 2) {
-        override fun migrate(database: androidx.sqlite.db.SupportSQLiteDatabase) {
-            // version 2 adds no breaking schema changes; kept for future use
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(database: androidx.sqlite.db.SupportSQLiteDatabase) {
+                // version 2 adds no breaking schema changes; kept for future use
+            }
         }
     }
 }

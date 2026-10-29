@@ -1,6 +1,7 @@
 package dev.lokro.stockglass.data.local.entity
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "instruments")
@@ -43,7 +44,7 @@ data class WidgetConfigEntity(
 @Entity(
     tableName = "price_snapshots",
     primaryKeys = ["symbol"],
-    indices = [Index(value = ["updatedAt"])]
+    indices = []
 )
 data class PriceSnapshotEntity(
     val symbol: String,
