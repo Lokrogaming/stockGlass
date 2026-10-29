@@ -1,8 +1,8 @@
 plugins {
-    alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.hilt.android) apply false
-    alias(libs.plugins.kotlin.plugin.serialization) apply false
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.kotlinAndroid) apply false
+    alias(libs.plugins.hiltAndroid) apply false
+    alias(libs.plugins.kotlinSerialization) apply false
 }
 
 android {
