@@ -16,36 +16,18 @@ Da keine Android-SDK lokal verfügbar ist, wird der Build exklusiv über GitHub 
 
 ## Features
 
-- Startbildschirm-Widgets mit echten Kursdaten (Twelve Data API)
-- API-Schlüssel verschlüsselt gespeichert (Android EncryptedSharedPreferences, AES256-GCM)
-- Lokale Cache-DB (Room) für Instrumente, Widget-Konfigurationen und Kurs-Snapshots
-- Automatische Kurs-Aktualisierung per WorkManager
-- Material 3 UI (Hell/Dark), deutsche Lokalisierung
-- Hilt Dependency Injection, Kotlin Coroutines, Kotlin Serialization
-
-## Aufbau
-
-```
-app/src/main/java/dev/lokro/stockglass/
-├── di/                 # Hilt Module + Application
-├── domain/
-│   ├── model/          # Domain-Modelle (Quote, Instrument, WidgetConfig, …)
-│   ├── mapper/         # Entity <-> Domain Mapper
-│   └── usecase/        # Use Cases + Result sealed class
-├── data/
-│   ├── remote/         # Retrofit API, DTOs, API-Result-Mapping
-│   ├── repository/     # Repository-Implementierungen
-│   ├── security/       # EncryptedStore (API-Key)
-│   ├── cache/          # Request-Deduplizierung, Exponential-Backoff
-│   └── local/          # Room Entities, DAOs, Database, TypeConverters
-├── ui/
-│   ├── navigation/     # NavHost + Routen
-│   ├── screens/        # Compose Screens (Home, Search, Settings, API-Key, Editor, Widget-Liste)
-│   └── theme/          # Material 3 Theme
-├── widget/             # Jetpack Glance AppWidget + Receiver
-├── work/               # RefreshWorker (WorkManager)
-└── util/               # NumberFormatter, GradientUtils
-```
+- **Launcher-App** mit MainActivity (erscheint im App-Menü)
+- **Startbildschirm-Widgets** mit echten Kursdaten (Twelve Data API) via Jetpack Glance / AppWidgetProvider
+- **Widget-Editor** zur Konfiguration von Symbol, Größe, Layout und Anzeigeoptionen
+- **Pill Bottom Navigation** im modernen Glass-Design
+- **Theme-Einstellung**: Hell / Dunkel / System-abhängig
+- **Material 3 UI**, deutsche Lokalisierung
+- **API-Schlüssel verschlüsselt gespeichert** (Android EncryptedSharedPreferences, AES256-GCM)
+- **Lokaler Cache** (Room) für Instrumente, Widget-Konfigurationen und Kurs-Snapshots
+- **Automatische Kurs-Aktualisierung** per WorkManager
+- **Dependency Injection** via Hilt
+- **Platzhalter-Logo** im Glass-Design
+- **Cleanes, modernes Design** mit abgerundeten Karten, Sanft-Verläufen und sanften Schatten
 
 ## API-Schlüssel einrichten
 
@@ -64,12 +46,20 @@ Der Build läuft über `.github/workflows/android.yml`:
 
 Artifacts: `app-debug.apk`
 
+## Installation (Wichtig!)
+
+Da eine Debug-APK keine feste Signatur hat, muss sie **immer zuerst deinstalliert** werden, bevor eine neuere Version installiert werden kann:
+
+1. Alte StockGlass-Version deinstallieren
+2. Neue `app-debug.apk` aus den GitHub Actions Artifacts herunterladen und installieren
+
 ## Bekannte Einschränkungen
 
 - **Kein lokaler Build möglich** (kein Android SDK in dieser Umgebung). Verifizierung erfolgt ausschließlich in GitHub Actions.
 - **API-Key-Sicherheit**: Der Schlüssel liegt auf dem Gerät verschlüsselt vor. Bei Diebstahl des entsperrten Geräts oder Kompromittierung des Android-Keystores ist er lesbar. Es gibt keinen 100%igen Schutz für clientseitig gespeicherte API-Schlüssel.
 - **Twelve Data Free-Plan**: Begrenzte API-Calls pro Tag/Monat. Keine Echtzeit- oder Streaming-Daten; Kurse können verzögert sein.
 - **Keine Anlageberatung**: Die angezeigten Kurse dienen nur Informationszwecken.
+- **Debug-APK Updates**: Immer zuerst deinstallieren, dann neu installieren (Android-Sicherheitsmechanismus).
 
 ## Lizenz
 
