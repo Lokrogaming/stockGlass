@@ -14,16 +14,14 @@ object EncryptedStore {
     fun init(context: Context) {
         if (prefs != null) return
         val masterKey = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256-GCM)
-            .setBlockMode(MasterKey.BlockMode.CBC)
-            .setEncryptionPaddings(MasterKey.EncryptionPadding.PKCS7Padding)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
         prefs = EncryptedSharedPreferences.create(
             context,
             PREFS_NAME,
             masterKey,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256-SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256-GCM,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
         )
     }
 

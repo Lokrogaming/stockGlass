@@ -8,6 +8,7 @@ import dev.lokro.stockglass.data.remote.ApiResult
 import dev.lokro.stockglass.data.remote.ApiResultMapper
 import dev.lokro.stockglass.data.remote.TwelveDataApi
 import dev.lokro.stockglass.data.repository.MarketDataRepository
+import dev.lokro.stockglass.domain.model.HistoricalPoint
 import dev.lokro.stockglass.domain.model.HistoricalSeries
 import dev.lokro.stockglass.domain.model.Instrument
 import dev.lokro.stockglass.domain.model.Quote
@@ -139,7 +140,7 @@ class TwelveDataMarketDataRepositoryImpl(
                                 close = v.close,
                                 volume = v.volume,
                             )
-                        }
+                        } ?: run { null }
                     }
                     val series = HistoricalSeries(
                         symbol = symbol,
@@ -152,7 +153,7 @@ class TwelveDataMarketDataRepositoryImpl(
                         dev.lokro.stockglass.data.local.entity.HistoricalSeriesEntity(
                             symbol = symbol,
                             interval = interval,
-                            json = json.encodeToString(dev.lokro.stockglass.domain.model.HistoricalSeries.serializer(), series),
+                            json = kotlinx.serialization.json.Json.encodeToString(dev.lokro.stockglass.domain.model.HistoricalSeries.serializer(), series),
                             updatedAt = System.currentTimeMillis(),
                         )
                     )
@@ -228,7 +229,7 @@ class TwelveDataMarketDataRepositoryImpl(
     }
 }
 
-private fun ApiResult<Nothing>.toException(): Exception {
+private fun <T> ApiResult<T>.toException(): Exception {
     return when (this) {
         is ApiResult.InvalidKey -> IllegalStateException(message)
         is ApiResult.RateLimited -> IllegalStateException("Rate limited: $message")
