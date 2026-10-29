@@ -5,15 +5,15 @@ import dev.lokro.stockglass.domain.model.WidgetConfig
 import kotlinx.coroutines.flow.Flow
 
 class SaveWidgetConfigImpl(private val repository: WidgetRepository) : SaveWidgetConfig {
-    override fun invoke(config: WidgetConfig) = repository.saveWidgetConfig(config)
+    override suspend fun invoke(config: WidgetConfig) = repository.saveWidgetConfig(config)
 }
 
 class DeleteWidgetConfigImpl(private val repository: WidgetRepository) : DeleteWidgetConfig {
-    override fun invoke(id: String) = repository.deleteWidgetConfig(id)
+    override suspend fun invoke(id: String) = repository.deleteWidgetConfig(id)
 }
 
 class GetWidgetConfigImpl(private val repository: WidgetRepository) : GetWidgetConfig {
-    override fun invoke(id: String): WidgetConfig? = repository.getWidgetConfig(id)
+    override suspend fun invoke(id: String): WidgetConfig? = repository.getWidgetConfig(id)
 }
 
 class WatchWidgetConfigsImpl(private val repository: WidgetRepository) : WatchWidgetConfigs {
@@ -21,7 +21,7 @@ class WatchWidgetConfigsImpl(private val repository: WidgetRepository) : WatchWi
 }
 
 class UpdateWidgetSnapshotImpl(private val repository: WidgetRepository) : UpdateWidgetSnapshot {
-    override fun invoke(
+    override suspend fun invoke(
         id: String,
         price: Double?,
         change: Double?,

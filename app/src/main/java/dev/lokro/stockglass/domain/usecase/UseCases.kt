@@ -6,27 +6,27 @@ import dev.lokro.stockglass.domain.model.Quote
 import kotlinx.coroutines.flow.Flow
 
 interface GetQuote {
-    operator fun invoke(symbol: String): kotlin.Result<Quote>
+    operator suspend fun invoke(symbol: String): kotlin.Result<Quote>
 }
 
 interface SearchSymbols {
-    operator fun invoke(query: String): kotlin.Result<List<Instrument>>
+    operator suspend fun invoke(query: String): kotlin.Result<List<Instrument>>
 }
 
 interface GetHistoricalSeries {
-    operator fun invoke(symbol: String, interval: String): kotlin.Result<HistoricalSeries>
+    operator suspend fun invoke(symbol: String, interval: String): kotlin.Result<HistoricalSeries>
 }
 
 interface SaveWidgetConfig {
-    operator fun invoke(config: dev.lokro.stockglass.domain.model.WidgetConfig)
+    operator suspend fun invoke(config: dev.lokro.stockglass.domain.model.WidgetConfig)
 }
 
 interface DeleteWidgetConfig {
-    operator fun invoke(id: String)
+    operator suspend fun invoke(id: String)
 }
 
 interface GetWidgetConfig {
-    operator fun invoke(id: String): dev.lokro.stockglass.domain.model.WidgetConfig?
+    operator suspend fun invoke(id: String): dev.lokro.stockglass.domain.model.WidgetConfig?
 }
 
 interface WatchWidgetConfigs {
@@ -34,7 +34,7 @@ interface WatchWidgetConfigs {
 }
 
 interface UpdateWidgetSnapshot {
-    operator fun invoke(
+    operator suspend fun invoke(
         id: String,
         price: Double?,
         change: Double?,

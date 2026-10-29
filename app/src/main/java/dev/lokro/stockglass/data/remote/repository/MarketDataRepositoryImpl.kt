@@ -153,7 +153,7 @@ class TwelveDataMarketDataRepositoryImpl(
                         dev.lokro.stockglass.data.local.entity.HistoricalSeriesEntity(
                             symbol = symbol,
                             interval = interval,
-                            json = kotlinx.serialization.json.Json.encodeToString(dev.lokro.stockglass.domain.model.HistoricalSeries.serializer(), series),
+                            json = series.toString(),
                             updatedAt = System.currentTimeMillis(),
                         )
                     )
@@ -231,11 +231,11 @@ class TwelveDataMarketDataRepositoryImpl(
 
 private fun <T> ApiResult<T>.toException(): Exception {
     return when (this) {
-        is ApiResult.InvalidKey -> IllegalStateException(message)
-        is ApiResult.RateLimited -> IllegalStateException("Rate limited: $message")
-        is ApiResult.InvalidSymbol -> IllegalStateException(message)
+        is ApiResult.InvalidKey -> IllegalStateException("Invalid API key")
+        is ApiResult.RateLimited -> IllegalStateException("Rate limited")
+        is ApiResult.InvalidSymbol -> IllegalStateException("Invalid symbol")
         is ApiResult.NetworkFailure -> exception
-        is ApiResult.EmptyData -> IllegalStateException(message)
+        is ApiResult.EmptyData -> IllegalStateException("Empty data")
         is ApiResult.Error -> exception
         else -> IllegalStateException("Unknown API error")
     }
