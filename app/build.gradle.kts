@@ -1,10 +1,21 @@
-plugins {
-    id("com.android.application") version "8.4.0"
-    id("org.jetbrains.kotlin.android") version "1.9.24"
-    id("org.jetbrains.kotlin.plugin.compose") version "1.9.24"
-    id("com.google.dagger.hilt.android") version "2.52"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.24"
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.4.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
+        classpath("org.jetbrains.kotlin:plugin-compose:1.9.24")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.48.1")
+    }
 }
+
+apply(plugin = "com.android.application")
+apply(plugin = "org.jetbrains.kotlin.android")
+apply(plugin = "org.jetbrains.kotlin.plugin.compose")
+apply(plugin = "com.google.dagger.hilt.android")
+apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
 android {
     namespace = "dev.lokro.stockglass"
