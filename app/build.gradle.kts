@@ -1,21 +1,8 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath(libs.plugins.com.android.application)
-        classpath(libs.plugins.org.jetbrains.kotlin.android)
-        classpath(libs.plugins.com.google.dagger.hilt.android)
-        classpath(libs.plugins.org.jetbrains.kotlin.plugin.serialization)
-    }
-}
-
 plugins {
-    alias(libs.plugins.com.android.application) apply false
-    alias(libs.plugins.org.jetbrains.kotlin.android) apply false
-    alias(libs.plugins.com.google.dagger.hilt.android) apply false
-    alias(libs.plugins.org.jetbrains.kotlin.plugin.serialization) apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.hilt.android) apply false
+    alias(libs.plugins.kotlin.plugin.serialization) apply false
 }
 
 android {
