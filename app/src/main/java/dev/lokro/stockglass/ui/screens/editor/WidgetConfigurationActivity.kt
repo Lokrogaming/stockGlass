@@ -8,7 +8,7 @@ import dev.lokro.stockglass.R
 
 class WidgetConfigurationActivity : AppCompatActivity() {
 
-    private lateinit var appWidgetId: Int
+    private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

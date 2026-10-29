@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
+import dev.lokro.stockglass.R
 
 class StockGlassWidgetReceiver : AppWidgetProvider() {
 
