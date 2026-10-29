@@ -1,0 +1,105 @@
+<resources>
+    <!-- App -->
+    <string name="app_name">StockGlass</string>
+
+    <!-- API key screen -->
+    <string name="apikey_title">API-Schlüssel</string>
+    <string name="apikey_subtitle">Geben Sie Ihren Twelve Data API-Schlüssel ein</string>
+    <string name="apikey_hint">API-Schlüssel</string>
+    <string name="apikey_button_save">Speichern</string>
+    <string name="apikey_button_cancel">Abbrechen</string>
+    <string name="apikey_success">API-Schlüssel gespeichert</string>
+    <string name="apikey_error_invalid">Ungültiger API-Schlüssel</string>
+    <string name="apikey_error_rate_limit">Zu viele Anfragen. Bitte später versuchen.</string>
+    <string name="apikey_error_network">Netzwerkfehler</string>
+    <string name="apikey_info_get_key">API-Schlüssel erhalten unter twelvedata.com</string>
+
+    <!-- Home -->
+    <string name="home_title">Übersicht</string>
+    <string name="home_add_widget">Widget hinzufügen</string>
+    <string name="home_search">Instrument suchen</string>
+    <string name="home_empty">Keine Widgets konfiguriert</string>
+    <string name="home_empty_sub">Legen Sie ein neues Widget an, um Aktienkurse auf dem Startbildschirm anzuzeigen.</string>
+    <string name="home_refresh">Aktualisieren</string>
+    <string name="home_last_update">Letzte Aktualisierung</string>
+
+    <!-- Search -->
+    <string name="search_title">Instrument suchen</string>
+    <string name="search_hint">Symbol oder Name (z. B. AAPL)</string>
+    <string name="search_no_results">Keine Ergebnisse</string>
+    <string name="search_select">Auswählen</string>
+
+    <!-- Widget editor -->
+    <string name="editor_title">Widget bearbeiten</string>
+    <string name="editor_symbol">Symbol</string>
+    <string name="editor_size">Größe</string>
+    <string name="editor_size_small">Klein</string>
+    <string name="editor_size_medium">Mittel</string>
+    <string name="editor_size_large">Groß</string>
+    <string name="editor_chart">Diagramm anzeigen</string>
+    <string name="editor_chart_type">Diagrammtyp</string>
+    <string name="editor_chart_range">Zeitraum</string>
+    <string name="editor_update_interval">Aktualisierungsintervall (Minuten)</string>
+    <string name="editor_show_ohlc">Eröffnung, Hoch, Tief, Schluss anzeigen</string>
+    <string name="editor_show_volume">Volumen anzeigen</string>
+    <string name="editor_decimal_precision">Dezimalstellen</string>
+    <string name="editor_gradient_intensity">Farbauflösung</string>
+    <string name="editor_corner_radius">Eckenradius (dp)</string>
+    <string name="editor_density">Dichte</string>
+    <string name="editor_density_compact">Kompakt</string>
+    <string name="editor_density_comfortable">Komfortabel</string>
+    <string name="editor_density_spacious">Großzügig</string>
+    <string name="editor_layout">Layout</string>
+    <string name="editor_layout_compact">Kompakt</string>
+    <string name="editor_layout_expanded">Erweitert</string>
+    <string name="editor_save">Speichern</string>
+    <string name="editor_delete">Löschen</string>
+    <string name="editor_delete_confirm">Widget wirklich löschen?</string>
+    <string name="editor_deleted">Widget gelöscht</string>
+
+    <!-- Widget list -->
+    <string name="widgetlist_title">Meine Widgets</string>
+    <string name="widgetlist_add">Neues Widget</string>
+    <string name="widgetlist_empty">Noch keine Widgets</string>
+    <string name="widgetlist_configure">Konfigurieren</string>
+    <string name="widgetlist_refresh_all">Alle aktualisieren</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_api_key">API-Schlüssel verwalten</string>
+    <string name="settings_api_key_summary">Twelve Data API-Schlüssel ändern</string>
+    <string name="settings_about">Über StockGlass</string>
+    <string name="settings_about_summary">Version und Lizenz</string>
+    <string name="settings_data_source">Datenquelle</string>
+    <string name="settings_data_source_value">Twelve Data</string>
+    <string name="settings_language">Sprache</string>
+    <string name="settings_language_value">Deutsch</string>
+    <string name="settings_disclaimer">Die Kurse stammen von Twelve Data und können verzögert sein. Keine Anlageberatung.</string>
+
+    <!-- Widget -->
+    <string name="widget_label">Aktien-Widget</string>
+    <string name="widget_configure">Konfigurieren</string>
+    <string name="widget_refresh">Aktualisieren</string>
+    <string name="widget_error">Fehler beim Laden</string>
+    <string name="widget_market_closed">Markt geschlossen</string>
+    <string name="widget_market_open">Markt geöffnet</string>
+    <string name="widget_price">Kurs</string>
+    <string name="widget_change">Veränderung</string>
+    <string name="widget_volume">Volumen</string>
+    <string name="widget_open">Eröffnung</string>
+    <string name="widget_high">Hoch</string>
+    <string name="widget_low">Tief</string>
+    <string name="widget_close">Schluss</string>
+
+    <!-- Generic -->
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="save">Speichern</string>
+    <string name="delete">Löschen</string>
+    <string name="loading">Lädt…</string>
+    <string name="error">Fehler</string>
+    <string name="retry">Wiederholen</string>
+    <string name="symbol">Symbol</string>
+    <string name="price">Kurs</string>
+    <string name="change">Veränderung</string>
+</resources>

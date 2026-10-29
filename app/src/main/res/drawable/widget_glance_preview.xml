@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="widget_glance_preview">@color/widget_bg_start</drawable>
+</resources>
