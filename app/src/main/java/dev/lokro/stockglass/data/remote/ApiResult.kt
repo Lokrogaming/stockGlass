@@ -30,7 +30,7 @@ object ApiResultMapper {
                 ApiResult.InvalidKey(msg)
             }
             response.code() == 429 -> {
-                val retryAfter = response.header("Retry-After")?.toLongOrNull()
+                val retryAfter = response.headers()["Retry-After"]?.toLongOrNull()
                 ApiResult.RateLimited(retryAfter)
             }
             response.code() == 404 -> {
