@@ -3,23 +3,22 @@ package dev.lokro.stockglass.domain.usecase
 import dev.lokro.stockglass.domain.model.HistoricalSeries
 import dev.lokro.stockglass.domain.model.Instrument
 import dev.lokro.stockglass.domain.model.Quote
-import dev.lokro.stockglass.domain.model.WidgetConfig
 import kotlinx.coroutines.flow.Flow
 
 interface GetQuote {
-    operator fun invoke(symbol: String): dev.lokro.stockglass.domain.usecase.Result<Quote>
+    operator fun invoke(symbol: String): kotlin.Result<Quote>
 }
 
 interface SearchSymbols {
-    operator fun invoke(query: String): dev.lokro.stockglass.domain.usecase.Result<List<Instrument>>
+    operator fun invoke(query: String): kotlin.Result<List<Instrument>>
 }
 
 interface GetHistoricalSeries {
-    operator fun invoke(symbol: String, interval: String): dev.lokro.stockglass.domain.usecase.Result<HistoricalSeries>
+    operator fun invoke(symbol: String, interval: String): kotlin.Result<HistoricalSeries>
 }
 
 interface SaveWidgetConfig {
-    operator fun invoke(config: WidgetConfig)
+    operator fun invoke(config: dev.lokro.stockglass.domain.model.WidgetConfig)
 }
 
 interface DeleteWidgetConfig {
@@ -27,11 +26,11 @@ interface DeleteWidgetConfig {
 }
 
 interface GetWidgetConfig {
-    operator fun invoke(id: String): WidgetConfig?
+    operator fun invoke(id: String): dev.lokro.stockglass.domain.model.WidgetConfig?
 }
 
 interface WatchWidgetConfigs {
-    operator fun invoke(): Flow<List<WidgetConfig>>
+    operator fun invoke(): Flow<dev.lokro.stockglass.domain.model.WidgetConfig>
 }
 
 interface UpdateWidgetSnapshot {

@@ -1,6 +1,5 @@
 package dev.lokro.stockglass.domain.usecase
 
-import dev.lokro.stockglass.data.security.EncryptedStore
 import dev.lokro.stockglass.data.repository.WidgetRepository
 import dev.lokro.stockglass.domain.model.WidgetConfig
 import kotlinx.coroutines.flow.Flow
@@ -18,7 +17,7 @@ class GetWidgetConfigImpl(private val repository: WidgetRepository) : GetWidgetC
 }
 
 class WatchWidgetConfigsImpl(private val repository: WidgetRepository) : WatchWidgetConfigs {
-    override fun invoke(): Flow<List<WidgetConfig>> = repository.watchWidgetConfigs()
+    override fun invoke(): Flow<WidgetConfig> = repository.watchWidgetConfigs()
 }
 
 class UpdateWidgetSnapshotImpl(private val repository: WidgetRepository) : UpdateWidgetSnapshot {
@@ -31,22 +30,22 @@ class UpdateWidgetSnapshotImpl(private val repository: WidgetRepository) : Updat
     ) = repository.updateWidgetSnapshot(id, price, change, percentChange, lastUpdated)
 }
 
-class GetApiKeyImpl(private val store: EncryptedStore) : GetApiKey {
+class GetApiKeyImpl(private val store: dev.lokro.stockglass.data.security.EncryptedStore) : GetApiKey {
     override fun invoke(): String? = store.getApiKey()
 }
 
-class StoreApiKeyImpl(private val store: EncryptedStore) : StoreApiKey {
+class StoreApiKeyImpl(private val store: dev.lokro.stockglass.data.security.EncryptedStore) : StoreApiKey {
     override fun invoke(apiKey: String) = store.storeApiKey(apiKey)
 }
 
-class DeleteApiKeyImpl(private val store: EncryptedStore) : DeleteApiKey {
+class DeleteApiKeyImpl(private val store: dev.lokro.stockglass.data.security.EncryptedStore) : DeleteApiKey {
     override fun invoke() = store.deleteApiKey()
 }
 
-class IsApiKeyValidatedImpl(private val store: EncryptedStore) : IsApiKeyValidated {
+class IsApiKeyValidatedImpl(private val store: dev.lokro.stockglass.data.security.EncryptedStore) : IsApiKeyValidated {
     override fun invoke(): Boolean = store.isKeyValidated()
 }
 
-class MarkApiKeyValidatedImpl(private val store: EncryptedStore) : MarkApiKeyValidated {
+class MarkApiKeyValidatedImpl(private val store: dev.lokro.stockglass.data.security.EncryptedStore) : MarkApiKeyValidated {
     override fun invoke() = store.markKeyValidated()
 }

@@ -1,5 +1,6 @@
 package dev.lokro.stockglass.domain.model
 
+import dev.lokro.stockglass.util.NumberFormatter
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -123,7 +124,7 @@ enum class ChartRange {
         }
     }
 
-    fun label(res: androidx.compose.ui.res.Resources? = null): String {
+    fun label(): String {
         return when (this) {
             OneDay -> "1 Tag"
             OneWeek -> "1 Woche"

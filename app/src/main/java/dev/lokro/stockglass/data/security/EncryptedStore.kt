@@ -9,7 +9,7 @@ object EncryptedStore {
     private const val KEY_API_KEY = "twelvedata_api_key"
     private const val KEY_API_KEY_VALIDATED = "twelvedata_api_key_validated"
 
-    private var prefs: androidx.security.crypto.EncryptedSharedPreferences? = null
+    private var prefs: android.content.SharedPreferences? = null
 
     fun init(context: Context) {
         if (prefs != null) return
