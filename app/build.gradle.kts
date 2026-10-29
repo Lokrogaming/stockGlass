@@ -1,8 +1,8 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.hiltAndroid)
-    alias(libs.plugins.kotlinSerialization)
+    id("com.android.application") version "8.4.0"
+    id("org.jetbrains.kotlin.android") version "1.9.24"
+    id("com.google.dagger.hilt.android") version "2.52"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.24"
 }
 
 android {
