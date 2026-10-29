@@ -65,10 +65,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Run Unit Tests
-        run: gradle testDebugUnitTest
+        run: gradle clean testDebugUnitTest
 
       - name: Build Debug APK
-        run: gradle assembleDebug
+        run: gradle clean assembleDebug
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
