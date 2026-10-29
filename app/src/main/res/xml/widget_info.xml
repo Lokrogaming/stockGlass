@@ -12,7 +12,7 @@
     android:updatePeriodMillis="0"
     android:description="@string/widget_label"
     android:previewImage="@mipmap/ic_launcher"
-    android:initialLayout="@layout/widget_glance_small"
+    android:initialLayout="@layout/widget_layout"
     android:widgetCategory="home_screen"
     android:configure="dev.lokro.stockglass.ui.screens.editor.WidgetConfigurationActivity"
-    android:previewLayout="@layout/widget_glance_preview" />
+    android:previewLayout="@layout/widget_configuration" />

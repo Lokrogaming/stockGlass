@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0F172A"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/widget_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AAPL"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="175,42"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+2,34 € (+1,35 %)"
+        android:textColor="#34D399"
+        android:textSize="16sp" />
+
+</LinearLayout>
