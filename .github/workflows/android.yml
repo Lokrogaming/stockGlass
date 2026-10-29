@@ -24,10 +24,15 @@ jobs:
           ANDROID_HOME: $HOME/android-sdk
         run: |
           echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
+          apt-get update -qq && apt-get install -y -qq unzip >/dev/null 2>&1
           mkdir -p $ANDROID_HOME/cmdline-tools/latest
+          cd $ANDROID_HOME/cmdline-tools/latest
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /tmp/cmdline-tools.zip
-          unzip -q /tmp/cmdline-tools.zip -d /tmp/cmdline-tools-extract
-          mv /tmp/cmdline-tools-extract/cmdline-tools/* $ANDROID_HOME/cmdline-tools/latest/
+          unzip -q /tmp/cmdline-tools.zip
+          # ZIP contains cmdline-tools/bin, cmdline-tools/lib, etc. -> move one level up
+          mv cmdline-tools/* . 2>/dev/null || true
+          rmdir cmdline-tools 2>/dev/null || true
+          rm -f /tmp/cmdline-tools.zip
 
       - name: Accept Android SDK licenses
         env:
