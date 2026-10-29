@@ -22,6 +22,16 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Accept Android SDK licenses
+        run: |
+          mkdir -p $ANDROID_HOME/licenses
+          echo "d56f5187479451eabf01fb78af6df4131e633742" > $ANDROID_HOME/licenses/android-sdk-license
+          echo "84831b9409646a918e30573bab4c9c91346d8abd" > $ANDROID_HOME/licenses/android-sdk-preview-license
+
+      - name: Install Android SDK components
+        run: |
+          sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
       - name: Run Unit Tests
         run: gradle testDebugUnitTest
 
