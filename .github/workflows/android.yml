@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Android SDK Command Line Tools
         env:
-          ANDROID_HOME: /usr/lib/android-sdk
+          ANDROID_HOME: $HOME/android-sdk
         run: |
           echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
           mkdir -p $ANDROID_HOME/cmdline-tools
@@ -32,7 +32,7 @@ jobs:
 
       - name: Accept Android SDK licenses
         env:
-          ANDROID_HOME: /usr/lib/android-sdk
+          ANDROID_HOME: $HOME/android-sdk
         run: |
           mkdir -p $ANDROID_HOME/licenses
           echo "d56f5187479451eabf01fb78af6df4131e633742" > $ANDROID_HOME/licenses/android-sdk-license
@@ -40,7 +40,7 @@ jobs:
 
       - name: Install Android SDK components
         env:
-          ANDROID_HOME: /usr/lib/android-sdk
+          ANDROID_HOME: $HOME/android-sdk
         run: |
           $ANDROID_HOME/cmdline-tools/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
