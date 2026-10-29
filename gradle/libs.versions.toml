@@ -43,9 +43,9 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
-androidx-glance = { group = "androidx.glance", name = "glance" }
-androidx-glance-appwidget = { group = "androidx.glance", name = "glance-appwidget" }
-androidx-glance-material = { group = "androidx.glance", name = "glance-material" }
+androidx-glance = { group = "androidx.glance", name = "glance", version = "1.1.0" }
+androidx-glance-appwidget = { group = "androidx.glance", name = "glance-appwidget", version = "1.1.0" }
+androidx-glance-material = { group = "androidx.glance", name = "glance-material", version = "1.1.0" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
 androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version = "2.52" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version = "2.6.1" }
