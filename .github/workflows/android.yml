@@ -24,19 +24,19 @@ jobs:
           ANDROID_HOME: $HOME/android-sdk
         run: |
           echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
-          apt-get update -qq && apt-get install -y -qq unzip >/dev/null 2>&1
           rm -rf $ANDROID_HOME
           mkdir -p $ANDROID_HOME/cmdline-tools/latest
           cd $ANDROID_HOME/cmdline-tools/latest
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /tmp/cmdline-tools.zip
           unzip -q /tmp/cmdline-tools.zip
-          # ZIP extrahiert zu ./cmdline-tools/{bin,lib,...} -> eine Ebene hochziehen
           if [ -d cmdline-tools ]; then
             mv cmdline-tools/* . 2>/dev/null || true
             rmdir cmdline-tools 2>/dev/null || true
           fi
           rm -f /tmp/cmdline-tools.zip
+          echo "=== cmdline-tools latest contents ==="
           ls -la $ANDROID_HOME/cmdline-tools/latest/
+          echo "=== bin contents ==="
           ls -la $ANDROID_HOME/cmdline-tools/latest/bin/ 2>/dev/null || echo "NO BIN DIR"
 
       - name: Accept Android SDK licenses
@@ -51,8 +51,9 @@ jobs:
         env:
           ANDROID_HOME: $HOME/android-sdk
         run: |
-          echo "Testing sdkmanager..."
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --version || echo "sdkmanager failed"
+          echo "=== sdkmanager version ==="
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --version || echo "sdkmanager --version failed"
+          echo "=== Installing components ==="
           $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Setup Gradle
