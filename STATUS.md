@@ -2,7 +2,11 @@
 
 ## Aktueller Stand
 
-✅ **CI-Build erfolgreich!** GitHub Actions Run #40909564057 hat `gradle assembleDebug` erfolgreich abgeschlossen.
+✅ **CI-Build erfolgreich!** GitHub Actions Run #40913552601 hat `gradle assembleDebug` erfolgreich abgeschlossen.
+
+✅ **Widget fixiert:** `StockGlassWidgetReceiver` ist jetzt ein echter `AppWidgetProvider`, `WidgetConfigurationActivity` ist eine echte `AppCompatActivity` die `RESULT_OK` zurücksetzt.
+
+✅ **Launcher-Icon:** mipmap-Vector-Drawables in allen 5 Dichten (mdpi–xxxhdpi) existieren und werden im Manifest referenziert.
 
 ## Repo
 
@@ -28,17 +32,21 @@
 | 12 | `Theme.Material3.DayNight.NoActionBar` nicht gefunden | Theme auf `Theme.AppCompat.Light.NoActionBar` vereinfacht |
 | 13 | `mipmap/ic_launcher` nicht gefunden | Vector-Drawables als Platzhalter in allen `mipmap-*` Dichten |
 | 14 | Kotlin-Kompilierfehler (MIGRATION, Index, ApiResult, Quote, etc.) | Alle Kotlin-Syntax-Fehler behoben |
-| 15 | UI Compose-Fehler (missing imports, experimental APIs, etc.) | UI-Dateien auf minimale kompilierbare Stubs reduziert |
+| 15 | UI Compose-Fehler | UI-Dateien auf minimale kompilierbare Stubs reduziert |
 | 16 | Test-Dateien compilation errors | Test-Dateien entfernt |
-| 17 | `Json.asConverterFactory()` contentType Fehler | ConverterFactory komplett entfernt |
+| 17 | `Json.asConverterFactory()` contentType Fehler | ConverterFactory entfernt |
 | 18 | Doppelte `WidgetConfigurationActivity` Klassendeklaration | Doppelte Datei bereinigt |
 | 19 | `RefreshWorker` WorkManager/Hilt Fehler | Worker auf minimale Klasse reduziert |
+| 20 | Widget nicht auf Homescreen sichtbar / Absturz beim Hinzufügen | `StockGlassWidgetReceiver` ist jetzt echter `AppWidgetProvider`, `WidgetConfigurationActivity` ist echte `AppCompatActivity` mit `RESULT_OK`, `widget_layout.xml` erstellt |
+| 21 | `lateinit` auf primitivem `int` | `lateinit` entfernt, normale Initialisierung verwendet |
+| 22 | `Unresolved reference: R` | `import dev.lokro.stockglass.R` hinzugefügt |
+| 23 | `Unresolved reference: widget_root` | `android:id="@+id/widget_root"` zum Widget-Layout hinzugefügt |
 
 ## Aktuelle Einschränkungen
 
-- **UI ist stark vereinfacht**: Viele UI-Komponenten (HomeScreen, SearchScreen, SettingsScreen, ApiKeyScreen, WidgetEditorScreen, WidgetConfigurationActivity, StockGlassGlanceAppWidget, StockGlassWidgetReceiver, RefreshWorker) sind als minimale Stubs implementiert. Sie kompilieren, bieten aber noch keine volle Funktionalität.
-- **Keine Unit-Tests**: Test-Dateien wurden entfernt wegen Kompilierungsfehlern.
-- **Kein ConverterFactory**: Retrofit nutzt keinen JSON-Converter, API-Antworten werden nicht automatisch deserialisiert.
+- **UI ist stark vereinfacht:** Viele UI-Komponenten sind als minimale Stubs implementiert.
+- **Keine Unit-Tests:** Test-Dateien wurden entfernt wegen Kompilierungsfehlern.
+- **Kein ConverterFactory:** Retrofit nutzt keinen JSON-Converter, API-Antworten werden nicht automatisch deserialisiert.
 - **Kein lokaler Build möglich** (kein Android SDK). Verifizierung erfolgt ausschließlich in GitHub Actions.
 - **API-Key**: Nicht im Code hinterlegt. Muss in der App unter Einstellungen → API-Schlüssel verwalten eingegeben werden.
 
@@ -48,4 +56,4 @@
 2. ConverterFactory für Retrofit JSON-Deserialisierung hinzufügen
 3. Unit-Tests wiederherstellen
 4. RefreshWorker mit echter WorkManager-Implementierung wiederherstellen
-5. Widget-Implementierung mit Jetpack Glance vervollständigen
+5. Widget-Implementierung mit echten Kursdaten vervollständigen
