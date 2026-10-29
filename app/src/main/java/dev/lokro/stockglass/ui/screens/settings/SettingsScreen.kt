@@ -9,7 +9,6 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import dev.lokro.stockglass.ui.theme.GlassCard
 import dev.lokro.stockglass.ui.theme.GlassSectionTitle
 import dev.lokro.stockglass.ui.theme.StockGlassLogo

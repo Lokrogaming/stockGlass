@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import dev.lokro.stockglass.ui.theme.GlassCard
@@ -34,7 +35,7 @@ fun SearchScreen(
         GlassCard(
             modifier = Modifier.fillMaxWidth(),
             content = {
-                androidx.compose.material3.TextField(
+                TextField(
                     value = "",
                     onValueChange = {},
                     label = { Text(text = "Symbol oder Name (z. B. AAPL)") },

@@ -3,7 +3,6 @@ package dev.lokro.stockglass.ui.screens.home
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,14 +26,6 @@ fun WidgetListScreen(
             style = androidx.compose.material3.MaterialTheme.typography.headlineLarge,
             color = androidx.compose.material3.MaterialTheme.colorScheme.onSurface,
         )
-
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-        ) {
-            items(items = listOf<String>()) { _ ->
-                // Platzhalter für zukünftige Widget-Liste
-            }
-        }
 
         Text(
             text = "Noch keine Widgets konfiguriert",

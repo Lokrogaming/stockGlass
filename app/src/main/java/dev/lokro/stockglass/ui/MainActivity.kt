@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.mutableStateOf
@@ -52,7 +51,7 @@ fun StockGlassApp() {
     StockGlassTheme(darkTheme = isDarkTheme) {
         val navController = rememberNavController()
 
-        NavHost(
+        androidx.navigation.compose.NavHost(
             navController = navController,
             startDestination = "home",
         ) {
@@ -102,10 +101,10 @@ fun StockGlassApp() {
                 onTabSelected = { index ->
                     selectedTab = index
                     when (index) {
-                        0 -> navController.navigate("home") { popBackStack() { inclusive = true } }
-                        1 -> navController.navigate("widgets") { popBackStack() { inclusive = true } }
-                        2 -> navController.navigate("search") { popBackStack() { inclusive = true } }
-                        3 -> navController.navigate("settings") { popBackStack() { inclusive = true } }
+                        0 -> navController.navigate("home")
+                        1 -> navController.navigate("widgets")
+                        2 -> navController.navigate("search")
+                        3 -> navController.navigate("settings")
                     }
                 },
             )
