@@ -50,7 +50,6 @@ dependencies {
     implementation(libs.bundles.network)
     implementation(libs.bundles.persistence)
     implementation(libs.bundles.work)
-    implementation("com.google.dagger:hilt:2.48.1")
     implementation("com.google.dagger:hilt-android:2.48.1")
     implementation(libs.org.jetbrains.kotlinx.coroutines.core)
     implementation(libs.org.jetbrains.kotlinx.coroutines.android)
