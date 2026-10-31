@@ -40,13 +40,13 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.foundation)
+    implementation(platform("androidx.compose:compose-bom:2024.06.00"))
+    implementation("androidx.activity:activity-compose:1.9.0")
+    implementation("androidx.compose.material3:material3:1.2.0")
+    implementation("androidx.compose.foundation:foundation:1.6.1")
     implementation("androidx.compose.foundation:foundation-layout:1.6.1")
-    implementation(libs.androidx.compose.ui)
+    implementation("androidx.compose.ui:ui:1.6.1")
     implementation("androidx.compose.ui:ui-tooling:1.6.1")
 
-    testImplementation(libs.junit)
+    testImplementation("junit:junit:4.13.2")
 }
