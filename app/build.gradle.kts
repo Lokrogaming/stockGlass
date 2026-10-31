@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.24"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.24"
     id("com.google.dagger.hilt.android") version "2.52"
+    id("org.jetbrains.kotlin.kapt") version "1.9.24"
 }
 
 android {
@@ -49,7 +50,7 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.androidx.work.runtime.ktor)
+    implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.security.crypto)
