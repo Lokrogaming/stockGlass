@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.StockGlass" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:colorPrimary">#0F62FE</item>
-        <item name="android:colorPrimaryDark">#0F62FE</item>
-        <item name="android:colorAccent">#0F62FE</item>
+    <style name="Theme.StockGlass" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#0F62FE</item>
+        <item name="colorPrimaryDark">#0F62FE</item>
+        <item name="colorSecondary">#000000</item>
         <item name="android:windowBackground">#FFFFFF</item>
     </style>
 </resources>
