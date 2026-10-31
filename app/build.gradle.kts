@@ -65,6 +65,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
     implementation("com.google.dagger:hilt:2.52")
+    implementation("com.google.dagger:hilt-android:2.52")
     implementation("androidx.hilt:hilt-work:2.52")
 
     annotationProcessor("com.google.dagger:hilt-compiler:2.52")
