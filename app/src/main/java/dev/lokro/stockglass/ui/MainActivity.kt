@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 
 class MainActivity : ComponentActivity() {
 
-    private const val TAG = "StockGlassStartup"
+    private val TAG = "StockGlassStartup"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

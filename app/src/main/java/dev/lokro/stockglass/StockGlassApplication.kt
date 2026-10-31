@@ -5,7 +5,7 @@ import android.util.Log
 
 class StockGlassApplication : Application() {
 
-    private const val TAG = "StockGlassStartup"
+    private val TAG = "StockGlassStartup"
 
     override fun onCreate() {
         super.onCreate()
