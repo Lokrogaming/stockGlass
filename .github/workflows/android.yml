@@ -52,10 +52,33 @@ jobs:
         env:
           ANDROID_HOME: /home/runner/android-sdk
         run: |
+          set -euo pipefail
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
           echo "=== sdkmanager version ==="
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --version || echo "sdkmanager --version failed"
-          echo "=== Installing components ==="
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+          $SDKMANAGER --version || echo "sdkmanager --version failed"
+
+          echo "=== Installing platform-tools ==="
+          $SDKMANAGER --sdk_root=$ANDROID_HOME "platform-tools"
+
+          echo "=== Installing Android SDK Platform 35 ==="
+          for attempt in 1 2 3; do
+            echo "Platform 35 installation attempt $attempt/3"
+            rm -rf "$ANDROID_HOME/platforms/android-35"
+            if $SDKMANAGER --sdk_root=$ANDROID_HOME "platforms;android-35"; then
+              if [ -f "$ANDROID_HOME/platforms/android-35/android.jar" ]; then
+                echo "Android SDK Platform 35 installed successfully."
+                break
+              fi
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "ERROR: Android SDK Platform 35 installation failed after 3 attempts."
+              exit 1
+            fi
+            sleep 10
+          done
+
+          echo "=== Installing build-tools 35.0.0 ==="
+          $SDKMANAGER --sdk_root=$ANDROID_HOME "build-tools;35.0.0"
 
       - name: Align Android SDK env vars
         run: |
