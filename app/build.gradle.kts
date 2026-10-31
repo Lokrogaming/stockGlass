@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidxComposeFoundationLayout)
     implementation(libs.androidxComposeUi)
     implementation(libs.androidxComposeUiTooling)
+    implementation("com.google.android.material:material:1.11.0")
 
     testImplementation(libs.junit)
 }
