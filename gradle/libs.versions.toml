@@ -1,13 +1,20 @@
 [versions]
 agp = "8.4.0"
 kotlin = "1.9.24"
+compose_bom = "2024.06.00"
+compose_compiler = "1.5.11"
+junit = "4.13.2"
 
 [plugins]
 android-application = { id = "com.android.tools.build:gradle", version = "8.4.0" }
 kotlin-android = { id = "org.jetbrains.kotlin:gradle-plugin", version = "1.9.24" }
-hilt-android = { id = "com.google.dagger:hilt-android-gradle-plugin", version = "2.52" }
-kotlin-serialization = { id = "org.jetbrains.kotlin:plugin-serialization", version = "1.9.24" }
 
 [libraries]
+androidx.compose.bom = { group = "androidx.compose", name = "compose-bom", version = "2024.06.00" }
+androidx.compose.material3 = { group = "androidx.compose.material3", name = "material3", version = "1.2.0" }
+androidx.compose.foundation = { group = "androidx.compose.foundation", name = "foundation", version = "1.6.1" }
+androidx.compose.ui = { group = "androidx.compose.ui", name = "ui", version = "1.6.1" }
+androidx.activity.compose = { group = "androidx.activity", name = "activity-compose", version = "1.9.0" }
+junit = { group = "junit", name = "junit", version = "4.13.2" }
 
 [bundles]
