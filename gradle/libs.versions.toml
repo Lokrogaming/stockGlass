@@ -10,11 +10,13 @@ android-application = { id = "com.android.tools.build:gradle", version = "8.4.0"
 kotlin-android = { id = "org.jetbrains.kotlin:gradle-plugin", version = "1.9.24" }
 
 [libraries]
-androidx.compose.bom = { group = "androidx.compose", name = "compose-bom", version = "2024.06.00" }
-androidx.compose.material3 = { group = "androidx.compose.material3", name = "material3", version = "1.2.0" }
-androidx.compose.foundation = { group = "androidx.compose.foundation", name = "foundation", version = "1.6.1" }
-androidx.compose.ui = { group = "androidx.compose.ui", name = "ui", version = "1.6.1" }
-androidx.activity.compose = { group = "androidx.activity", name = "activity-compose", version = "1.9.0" }
-junit = { group = "junit", name = "junit", version = "4.13.2" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version = "2024.06.00" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3", version = "1.2.0" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version = "1.6.1" }
+androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout:1.6.1" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui", version = "1.6.1" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling:1.6.1" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose:1.9.0" }
+junit = { module = "junit:junit:4.13.2" }
 
 [bundles]
