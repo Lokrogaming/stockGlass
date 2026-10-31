@@ -50,4 +50,9 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
 
     testImplementation(libs.junit)
+    testImplementation(libs.androidxTestRunner)
+    testImplementation(libs.androidxTestRules)
+    testImplementation(libs.androidxTestExtJunit)
+    testImplementation(libs.androidxComposeUiTest)
+    testImplementation(libs.androidxComposeUiTestJunit4)
 }
