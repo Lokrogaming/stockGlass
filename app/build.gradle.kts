@@ -55,4 +55,11 @@ dependencies {
     testImplementation(libs.androidxTestExtJunit)
     testImplementation(libs.androidxComposeUiTest)
     testImplementation(libs.androidxComposeUiTestJunit4)
+
+    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.androidxTestRunner)
+    androidTestImplementation(libs.androidxTestRules)
+    androidTestImplementation(libs.androidxTestExtJunit)
+    androidTestImplementation(libs.androidxComposeUiTest)
+    androidTestImplementation(libs.androidxComposeUiTestJunit4)
 }
